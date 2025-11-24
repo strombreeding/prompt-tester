@@ -2,7 +2,7 @@ import axios from "axios";
 import usePromptStore from "../stores/prompt.store";
 import useRouteStore from "../stores/route.store";
 import { geminiModels, gptModels } from "../assets/models";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { reqAllPrompt } from "../apis/content";
 
 export default function NewPrompt() {
