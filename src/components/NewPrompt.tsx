@@ -50,7 +50,7 @@ export default function NewPrompt() {
             onChange={(e) => {
               const v = e.target.value;
               setGptSelected(v);
-              setNewPrompt({ model: v });
+              setNewPrompt({ model: v.toLowerCase() });
             }}
             style={{ padding: 8 }}
           >
