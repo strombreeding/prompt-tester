@@ -87,6 +87,7 @@ export default function Main() {
                       },
                     }
                   );
+                  await reqFirst();
                 }}
               >
                 X
