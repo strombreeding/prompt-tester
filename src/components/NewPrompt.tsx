@@ -2,7 +2,7 @@ import axios from "axios";
 import usePromptStore from "../stores/prompt.store";
 import useRouteStore from "../stores/route.store";
 import { geminiModels, gptModels } from "../assets/models";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { reqAllPrompt } from "../apis/content";
 
 export default function NewPrompt() {
@@ -12,6 +12,8 @@ export default function NewPrompt() {
     setNewPrompt,
     selectProject,
     setPrompts,
+    systemPromptGuard,
+    setSystemPromptGuard,
   } = usePromptStore((state) => state);
   const { goback, setRoute } = useRouteStore((state) => state);
   const [geminiSelected, setGeminiSelected] = useState(geminiModels[0]);
@@ -165,11 +167,14 @@ export default function NewPrompt() {
         onChange={(e) => {
           setNewPrompt({ constantSystem: e.currentTarget.value });
         }}
-        onClick={() =>
-          alert(
-            "이 프롬프트는 constant 시스템프롬프트입니다. 바꾸시면 곤란하긴해요.."
-          )
-        }
+        onFocus={() => {
+          if (systemPromptGuard) {
+            setSystemPromptGuard(false);
+            window.alert(
+              "이 프롬프트는 constant 시스템프롬프트입니다. 바꾸시면 곤란하긴해요.."
+            );
+          }
+        }}
         style={{ width: "100%", height: 400 }}
         value={newPropmt.constantSystem}
       />

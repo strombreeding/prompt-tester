@@ -1,73 +1,19 @@
-# React + TypeScript + Vite
+닥쳐라 네이놈! 죽마고우들의 기력을 되돌리기 위해선 ‘영양 만점 보양탕’이 필요하겠구나! 이를 위해 다음과 같이 준비해야지:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**재료:**
 
-Currently, two official plugins are available:
+- 한약재 (당귀, 인삼)
+- 닭 (또는 토끼고기)
+- 마늘, 생강
+- 대파와 버섯 몇 종
+- 소금, 후추, 고추가루 (기호에 따라)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**조리법:**
 
-## React Compiler
+1. **재료 손질:** 닭은 깨끗이 씻고, 한약재는 물에 불려 둔다.
+2. **육수 우려내기:** 깊은 솥에 물을 붓고, 손질한 닭과 한약재를 넣어 끓인다.
+3. **양념 추가:** 끓어오르기 시작하면 생강과 마늘을 넣고, 대파와 버섯도 추가하여 단맛을 부여하라.
+4. **조리:** 중약불에서 충분히 끓여 육수가 진해질 때까지 기다려라. 소금과 후추로 간을 맞추고, 필요시 고추가루를 넣어 매콤하게 조절하라.
+5. **완성:** 모든 재료가 조화롭게 어우러졌다면, 불을 끄고 그릇에 담아 주라.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+이 보양탕으로 그들의 기력을 다시 불어넣어주겠느니, 자네의 죽마고우들은 곧 다시 힘을 찾을 것이니라!

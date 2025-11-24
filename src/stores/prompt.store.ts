@@ -63,6 +63,9 @@ interface IRouteStore {
 
   selectProject: Partial<IProject>;
   setSelectProject: (pj: Partial<IProject>) => void;
+
+  systemPromptGuard: boolean;
+  setSystemPromptGuard: (bool: boolean) => void;
 }
 
 const usePromptStore = create<IRouteStore>((set) => ({
@@ -91,6 +94,9 @@ const usePromptStore = create<IRouteStore>((set) => ({
   selectProject: {},
   setSelectProject: (pj) =>
     set((state) => ({ selectProject: { ...state.projects, ...pj } })),
+
+  systemPromptGuard: true,
+  setSystemPromptGuard: (bool) => set(() => ({ systemPromptGuard: bool })),
 }));
 
 export default usePromptStore;

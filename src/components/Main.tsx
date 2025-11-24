@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 import usePromptStore, { type IPrompt } from "../stores/prompt.store";
 import { reqAllPrompt } from "../apis/content";
+import axios from "axios";
 
 export default function Main() {
-  const { setNewPrompt, prompts, setPrompts, selectProject } = usePromptStore(
-    (state) => state
-  );
+  const {
+    setNewPrompt,
+    setSystemPromptGuard,
+    prompts,
+    setPrompts,
+    selectProject,
+  } = usePromptStore((state) => state);
 
   const reqFirst = async () => {
     const res = await reqAllPrompt(selectProject.id!);
@@ -58,20 +63,34 @@ export default function Main() {
               className="card"
               onClick={() => {
                 clickPromptCard(item);
+                setSystemPromptGuard(true);
               }}
               style={{
                 backgroundColor: "#131212",
                 padding: 10,
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
+                alignItems: "center",
+                justifyContent: "space-between",
                 gap: 4,
                 borderRadius: 8,
               }}
               key={i}
             >
               <span>{item.name}</span>
-              {/* <span>{item.platform}</span> */}
+              <button
+                onClick={async () => {
+                  await axios.delete(
+                    "https://n8n.imagineline.com/webhook-test/projects/prompts",
+                    {
+                      data: {
+                        promptId: item.id,
+                      },
+                    }
+                  );
+                }}
+              >
+                X
+              </button>
               {/* <span>{item.LLM}</span> */}
               {/* <span>{item.Model}</span> */}
               {/* <span>{item.status}</span> */}
