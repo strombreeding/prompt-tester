@@ -80,7 +80,7 @@ export default function Main() {
               <button
                 onClick={async () => {
                   await axios.delete(
-                    "https://n8n.imagineline.com/webhook-test/projects/prompts",
+                    "https://n8n.imagineline.com/webhook/projects/prompts",
                     {
                       data: {
                         promptId: item.id,
