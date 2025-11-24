@@ -214,6 +214,7 @@ export default function NewPrompt() {
           if (Object.keys(newPropmt).length < 9) {
             return window.alert("다 채워주세요.");
           }
+          setPromptValue("");
           const res = await axios.post(
             "https://n8n.imagineline.com/webhook/content/new",
             {
